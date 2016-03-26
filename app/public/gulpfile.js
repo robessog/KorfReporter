@@ -9,6 +9,8 @@ var inject = require('gulp-inject');
 var gulpSequence = require('gulp-sequence');
 var del = require('del');
 var dtsGenerator = require('dts-generator');
+var flatten = require('gulp-flatten');
+
 require('dotbin');
 
 var tsFilesGlob = (function (c) {
@@ -45,8 +47,18 @@ gulp.task('tslint', 'Lints all TypeScript source files', function () {
 // });
 
 gulp.task('copy-html', 'copies the html files to the dist folder', function(cb){
-   gulp.src('./src/**/*.html').pipe(gulp.dest('./dist'));
-   console.log('copy-html finished');
+   return gulp.src('./src/**/*.html').pipe(gulp.dest('./dist'));
+});
+
+var paths = {
+  tsDef : "./typings/",
+  importedTypings: "./jspm_packages/**/*.d.ts"  
+};
+
+gulp.task('copy-defs', function(){
+    return gulp.src(paths.importedTypings)
+    .pipe(flatten())
+    .pipe(gulp.dest(paths.tsDef + "/jspmImports/"));
 });
 
 gulp.task('_build', 'INTERNAL TASK - Compiles all TypeScript source files', function (cb) {
@@ -67,7 +79,8 @@ gulp.task('_build', 'INTERNAL TASK - Compiles all TypeScript source files', func
 });
 
 //run tslint task, then run update-tsconfig and gen-def in parallel, then run _build
-gulp.task('build', 'Compiles all TypeScript source files and updates module references', gulpSequence('tslint', ['update-tsconfig'], '_build', 'copy-html'));
+// gulp.task('build', 'Compiles all TypeScript source files and updates module references', gulpSequence(['update-tsconfig'], '_build', 'copy-html'));
+gulp.task('build', 'Compiles all TypeScript source files and updates module references', gulpSequence('tslint', ['update-tsconfig', 'copy-defs'], '_build', 'copy-html'));
 
 gulp.task('test', 'Runs the Jasmine test specs', ['build'], function () {
   return gulp.src('test/*.js')

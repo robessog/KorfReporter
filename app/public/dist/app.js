@@ -18,6 +18,9 @@ System.register([], function(exports_1, context_1) {
                 submit() {
                     alert(`Welcome, ${this.fullName}!`);
                 }
+                changeMessage() {
+                    this.message = 'changed 3';
+                }
             }
             exports_1("App", App);
         }

@@ -10,4 +10,8 @@ export class App {
   submit(): void {
     alert(`Welcome, ${this.fullName}!`);
   }
+
+  changeMessage(): void {
+      this.message = 'changed 3';
+  }
 }
