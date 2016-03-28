@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "description": "app",
   "license": "MIT",
-  "repository": "",
-  "author": "",
-  "keywords": [
-    ""
-  ],
+  "repository": {
+    "type": "git",
+    "url": "..\\"
+  },
+  "author": "Robert Essig",
+  "keywords": [],
   "files": [
     "lib"
   ],
@@ -22,7 +23,8 @@
     "del": "2.0.2",
     "dotbin": "^1.0",
     "dts-generator": "^1.7",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.1",
     "gulp-help": "^1.6.0",
     "gulp-inject": "3.0.0",
     "gulp-jasmine": "^2.0.1",
@@ -50,5 +52,9 @@
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4"
     }
+  },
+  "main": "lib\\app",
+  "directories": {
+    "test": "test"
   }
 }
