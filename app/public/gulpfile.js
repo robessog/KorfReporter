@@ -87,8 +87,30 @@ gulp.task('test', 'Runs the Jasmine test specs', ['build'], function() {
         .pipe(jasmine());
 });
 
-gulp.task('watch', 'Watches ts source files and runs build on change', function() {
+gulp.task('watch', 'Watches ts source files and runs build on change', ['tslint', '_build', 'copy-html'], function() {
 
     gulp.watch('src/**/*.html', ['copy-html']);
-    gulp.watch('src/**/*.ts', ['tslint', 'clean-build']);
+    gulp.watch('src/**/*.ts', ['tslint', '_build', 'copy-html']);
 });
+
+gulp.task('browser-sync', function(){
+    
+    gulp.watch('src/**/*.html', ['copy-html']);
+    gulp.watch('src/**/*.ts', ['tslint', '_build', 'copy-html']);
+    
+    browserSync({
+        port: 3000,
+        file: ['index.html', '**/*.{js,html}'],
+        injectChanges: true,
+        logFileChanges: false,
+        logLevel: 'silent',
+        notify: true,
+        reloadDelay: 0,
+        server: {
+            baseDir: './',
+            middleware: superstatic({debug: false})
+        }
+    });
+});
+
+gulp.task('default', ['browser-sync']);
