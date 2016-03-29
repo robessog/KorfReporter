@@ -11,7 +11,9 @@
     "src/**/*.ts"
   ],
   "files": [
+    "src\\about.ts",
     "src\\app.ts",
-    "src\\main.ts"
+    "src\\main.ts",
+    "src\\MatchEvent\\matchEvent.ts"
   ]
 }

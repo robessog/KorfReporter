@@ -1,17 +1,20 @@
+/// <reference path="./../typings/jspmImports/aurelia-router.d.ts" />
+
+import { RouterConfiguration, Router } from 'aurelia-router';
+
 export class App {
-  heading: string = 'Welcome to Aurelia!';
-  firstName: string = 'John';
-  lastName: string = 'Doe';
-  message: string = 'Hello from my királyságos aurelia!';
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  submit(): void {
-    alert(`Welcome, ${this.fullName}!`);
-  }
-
-  changeMessage(): void {
-      this.message = 'changed 3';
+   
+  router: Router;
+  
+  configureRouter(config: RouterConfiguration, router: Router) {
+      config.title = 'KorfReporter2';
+      config.map([
+        //   { route: ['', 'Home'], name: 'home', modeuleId: './home', nav: true, title: 'Home' },
+        { route: ['About'], name: 'about', moduleId: './about', nav: true, title: 'About' },
+          { route: 
+              ['', 'MatchReporting'], name: 'matchEvent', moduleId: './MatchEvent/MatchEvent', nav: true, title: 'Match Reporting' }
+      ]);
+      
+      this.router = router;
   }
 }
