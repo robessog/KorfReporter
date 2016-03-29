@@ -7,7 +7,7 @@ export class App {
   router: Router;
   
   configureRouter(config: RouterConfiguration, router: Router) {
-      config.title = 'KorfReporter2';
+      config.title = 'KorfReporter';
       config.map([
         //   { route: ['', 'Home'], name: 'home', modeuleId: './home', nav: true, title: 'Home' },
         { route: ['About'], name: 'about', moduleId: './about', nav: true, title: 'About' },
@@ -16,5 +16,5 @@ export class App {
       ]);
       
       this.router = router;
-  }
+    }
 }
