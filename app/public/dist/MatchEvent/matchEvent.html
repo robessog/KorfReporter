@@ -1,11 +1,34 @@
 <template>
-    <h2>hello</h2>
-    <h3>szia23dsd3</h3>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <h2> <span> ${team1.name} </span> <span class="pull-right">${team1.score}</span> </h2>
+        </div>
+        <div class="col-md-4">
+            <h2><span>${team2.score}</span> <span class="pull-right"> ${team2.name} </span </h2>
+        </div>
+    </div>
     
-    <br>
-    <br>
     
-    <h3>csa</h3>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <input class="form-control input-lg" type="text" placeholder="Type event expression" >
+            
+            <table class="table">
+                <tbody>
+                    <tr repeat.for="guess of guesses2">
+                       <td>${guess.teamName}</td>
+                       <td>${guess.playerNumber}</td>
+                       <td>${guess.playerName}</td>
+                       <td>${guess.eventType}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    
     
     <div class="contaier">
         <div>${message}</div>

@@ -1,9 +1,13 @@
-System.register([], function(exports_1, context_1) {
+System.register(["./../Model/MatchTeam"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var MatchTeam_1;
     var MatchEvent;
     return {
-        setters:[],
+        setters:[
+            function (MatchTeam_1_1) {
+                MatchTeam_1 = MatchTeam_1_1;
+            }],
         execute: function() {
             class MatchEvent {
                 constructor() {
@@ -11,6 +15,8 @@ System.register([], function(exports_1, context_1) {
                     this.firstName = 'John';
                     this.lastName = 'Doe';
                     this.message = 'Hello from my királyságos aurelia!';
+                    this.team1 = new MatchTeam_1.MatchTeam("SZAC");
+                    this.team2 = new MatchTeam_1.MatchTeam("Szentendre");
                 }
                 get fullName() {
                     return `${this.firstName} ${this.lastName}`;
