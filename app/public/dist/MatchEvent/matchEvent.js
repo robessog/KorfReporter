@@ -1,12 +1,15 @@
-System.register(["./../Model/MatchTeam"], function(exports_1, context_1) {
+System.register(['./../Model/MatchTeam', './../Model/EventGuess'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var MatchTeam_1;
+    var MatchTeam_1, EventGuess_1;
     var MatchEvent;
     return {
         setters:[
             function (MatchTeam_1_1) {
                 MatchTeam_1 = MatchTeam_1_1;
+            },
+            function (EventGuess_1_1) {
+                EventGuess_1 = EventGuess_1_1;
             }],
         execute: function() {
             class MatchEvent {
@@ -15,8 +18,18 @@ System.register(["./../Model/MatchTeam"], function(exports_1, context_1) {
                     this.firstName = 'John';
                     this.lastName = 'Doe';
                     this.message = 'Hello from my királyságos aurelia!';
-                    this.team1 = new MatchTeam_1.MatchTeam("SZAC");
-                    this.team2 = new MatchTeam_1.MatchTeam("Szentendre");
+                    this.team1 = new MatchTeam_1.MatchTeam('SZAC');
+                    this.team2 = new MatchTeam_1.MatchTeam('Szentendre');
+                    this.guesses2 = [
+                        new EventGuess_1.EventGuess('SZAC', 'Dörfi György', 6, 5),
+                        new EventGuess_1.EventGuess('SZAC', 'Dörfi György', 6, 0)
+                    ];
+                }
+                get guesses() {
+                    return [
+                        new EventGuess_1.EventGuess('SZAC', 'Dörfi György', 6, 5),
+                        new EventGuess_1.EventGuess('SZAC', 'Dörfi György', 6, 0)
+                    ];
                 }
                 get fullName() {
                     return `${this.firstName} ${this.lastName}`;

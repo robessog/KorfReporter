@@ -1,8 +1,6 @@
- /// <reference path="./../../../Domain/KorfEventType.ts" />
-
 import {MatchTeam} from './../Model/MatchTeam';
 import {EventGuess} from './../Model/EventGuess';
-import {Domain} from './../../../Domain/KorfEventType';
+import {Domain} from './../SHARED_SRC/Domain/EventType';
 
 export class MatchEvent {
   heading: string = 'Welcome to Aurelia!';
@@ -27,7 +25,6 @@ export class MatchEvent {
   }
   
   get fullName(): string {
-    
     return `${this.firstName} ${this.lastName}`;
   }
 

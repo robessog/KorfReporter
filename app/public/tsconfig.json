@@ -4,16 +4,23 @@
     "module": "system",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "listFiles": true,
+    "diagnostics": true,
+    "removeComments": true
   },
   "filesGlob": [
-    "typings/main.d.ts",
-    "src/**/*.ts"
+    "./typings/main.d.ts",
+    "./src/**/*.ts"
   ],
   "files": [
     "src\\about.ts",
     "src\\app.ts",
     "src\\main.ts",
-    "src\\MatchEvent\\matchEvent.ts"
+    "src\\MatchEvent\\matchEvent.ts",
+    "src\\Model\\EventGuess.ts",
+    "src\\Model\\MatchTeam.ts",
+    "src\\SHARED_SRC\\Domain\\EventType.ts",
+    "src\\SHARED_SRC\\Domain\\EventTypeTranslator.ts"
   ]
 }

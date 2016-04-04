@@ -1,1 +1,0 @@
-{"version":3,"sources":["MatchEvent/myTest.ts"],"names":[],"mappings":";;;;;;;YAAA;YAGA,CAAC;YAHD,2BAGC,CAAA","file":"MatchEvent/myTest.js","sourcesContent":["export class MyTest{\r\n    name: string;\r\n    value: number;\r\n}"],"sourceRoot":"/source/"}

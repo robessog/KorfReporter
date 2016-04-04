@@ -54,7 +54,7 @@ gulp.task('gen-def', 'Generate a single .d.ts bundle containing external module 
     name: appName,
     project: '.',
     out: './lib/' + appName + '.d.ts',
-    exclude: ['node_modules/**/*.d.ts', 'typings/**/*.d.ts']
+    exclude: ['node_modules/**/*.d.ts', 'typings/**/*.d.ts', 'public/**/*.d.ts']
   });
 });
 

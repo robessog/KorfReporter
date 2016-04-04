@@ -53,8 +53,14 @@ gulp.task('copy-html', 'copies the html files to the dist folder', function(cb) 
 
 var paths = {
     tsDef: "./typings/",
-    importedTypings: "./jspm_packages/**/*.d.ts"
+    importedTypings: "./jspm_packages/**/*.d.ts",
+    srcFolder: './src',
+    sharedSrcFolderName: 'SHARED_SRC'
 };
+
+gulp.task('copy-shared-src', 'copies the shared files typescript files to src folder', function(cb) {
+    return gulp.src('./../'+ paths.sharedSrcFolderName +'/**/*.ts').pipe(plumber()).pipe(gulp.dest(paths.srcFolder + '/' + paths.sharedSrcFolderName));
+});
 
 gulp.task('copy-defs', function() {
     return gulp.src(paths.importedTypings)
@@ -74,12 +80,12 @@ var buildMethod = function(cb) {
         .pipe(gulp.dest(destinationFolder + '/'));
 };
 
-gulp.task('_build', 'INTERNAL TASK - Compiles all TypeScript source files', buildMethod);
+gulp.task('_build', 'INTERNAL TASK - Compiles all TypeScript source files', ['copy-shared-src'], buildMethod);
 
 gulp.task('clean-build', 'Cleans and then compiles typescript', ['clean'], buildMethod);
 
 gulp.task('build', 'Compiles all TypeScript source files and updates module references',
-    function(callback) { gulpSequence('tslint', ['update-tsconfig', 'copy-defs', 'clean'], '_build', 'copy-html')() }
+    function(callback) { gulpSequence('copy-shared-src', 'tslint', ['update-tsconfig', 'copy-defs', 'clean'], '_build', 'copy-html')() }
 );
 
 gulp.task('test', 'Runs the Jasmine test specs', ['build'], function() {
@@ -90,7 +96,7 @@ gulp.task('test', 'Runs the Jasmine test specs', ['build'], function() {
 gulp.task('watch', 'Watches ts source files and runs build on change', ['tslint', '_build', 'copy-html'], function() {
 
     gulp.watch('src/**/*.html', ['copy-html']);
-    gulp.watch('src/**/*.ts', ['tslint', '_build', 'copy-html']);
+    gulp.watch('src/**/*.ts', ['copy-shared-src', 'tslint', '_build', 'copy-html']);
 });
 
 gulp.task('browser-sync', function(){

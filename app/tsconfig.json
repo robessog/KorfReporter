@@ -6,8 +6,12 @@
     "noImplicitAny": true,
     "outDir": "./lib",
     "preserveConstEnums": true,
-    "removeComments": true
+    "removeComments": true,
+    "listFiles": true
   },
+  "exclude": [
+    "public/**/*.ts"
+  ],
   "filesGlob": [
     "typings/main.d.ts",
     "src/**/*.ts"
