@@ -11,11 +11,6 @@ export class MatchEvent {
   team1: MatchTeam = new MatchTeam('SZAC');
   team2: MatchTeam = new MatchTeam('Szentendre');
   
-  guesses2: EventGuess[] = [
-        new EventGuess('SZAC', 'Dörfi György', 6, Domain.EventType.LongGoal),
-        new EventGuess('SZAC', 'Dörfi György', 6, Domain.EventType.PenaltyGoal)
-    ];
-  
   get guesses(): EventGuess[] {
     
     return [
