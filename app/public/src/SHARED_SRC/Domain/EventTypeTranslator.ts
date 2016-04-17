@@ -10,7 +10,7 @@ export class EventTypeTranslator {
             case Domain.EventType.FirstHalfStart:
                 return 'First half started';
             default:
-            return '?? unkown event type ??';
-        }  
+            return '???? unkown event type ????';
+        }
     }
 }

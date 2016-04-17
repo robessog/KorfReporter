@@ -7,6 +7,7 @@
     "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160218233549",
     "mime": "registry:dt/mime#0.0.0+20151204023458",
     "node": "registry:dt/node#4.0.0+20160311162451",
-    "serve-static": "registry:dt/serve-static#0.0.0+20160218233549"
+    "serve-static": "registry:dt/serve-static#0.0.0+20160218233549",
+    "socket.io": "registry:dt/socket.io#1.4.4+20160317120654"
   }
 }

@@ -19,6 +19,8 @@
   "files": [
     "typings\\main.d.ts",
     "src\\app.ts",
-    "src\\greeter.ts"
+    "src\\greeter.ts",
+    "src\\SHARED_SRC\\Domain\\EventType.ts",
+    "src\\SHARED_SRC\\Domain\\EventTypeTranslator.ts"
   ]
 }
