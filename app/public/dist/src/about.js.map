@@ -1,0 +1,1 @@
+{"version":3,"sources":["about.ts"],"names":[],"mappings":";;;;;;;YAAA;YAEA,CAAC;YAFD,yBAEC,CAAA","file":"src/about.js","sourcesContent":["export class About {\r\n\r\n}\r\n"],"sourceRoot":"/source/"}

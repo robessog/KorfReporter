@@ -1,7 +1,6 @@
 import {Domain} from './EventType';
 
 export class EventTypeTranslator {
-    
     static getDisplayName(eventType: Domain.EventType) : string {
         switch (eventType) {
             case Domain.EventType.LongGoal:

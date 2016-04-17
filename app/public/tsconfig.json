@@ -18,6 +18,7 @@
     "src\\app.ts",
     "src\\main.ts",
     "src\\MatchEvent\\matchEvent.ts",
+    "src\\Model\\EventAbbreviationResolver.ts",
     "src\\Model\\EventGuess.ts",
     "src\\Model\\MatchTeam.ts",
     "src\\SHARED_SRC\\Domain\\EventType.ts",
