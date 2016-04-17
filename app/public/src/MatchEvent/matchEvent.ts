@@ -1,6 +1,9 @@
+/// <reference path="./../../typings/browser//ambient/socket.io-client/index.d.ts" />
+
 import {MatchTeam} from './../Model/MatchTeam';
 import {EventGuess} from './../Model/EventGuess';
 import {Domain} from './../SHARED_SRC/Domain/EventType';
+import * as Socket from 'socket.io-client';
 
 export class MatchEvent {
   heading: string = 'Welcome to Aurelia!';
@@ -10,6 +13,7 @@ export class MatchEvent {
   
   team1: MatchTeam = new MatchTeam('SZAC');
   team2: MatchTeam = new MatchTeam('Szentendre');
+  socket: SocketIOClient.Socket;
   
   get guesses(): EventGuess[] {
     
@@ -30,5 +34,12 @@ export class MatchEvent {
 
   changeMessage(): void {
       this.message = 'changed 5336';
+  }
+  
+  activate(): void {
+    this.socket = Socket.connect();
+    this.socket.on('connect', (data) => {
+      this.socket.emit('join', 'Hello Workld from client :)');
+    });
   }
 }

@@ -29,10 +29,13 @@
     "gulp-help": "^1.6.0",
     "gulp-inject": "3.0.0",
     "gulp-jasmine": "^2.0.1",
+    "gulp-plumber": "^1.1.0",
     "gulp-sequence": "0.4.1",
     "gulp-tsconfig-files": "0.0.2",
     "gulp-tslint": "^3.1",
+    "gulp-typescript": "^2.13.0",
     "jasmine": "^2.3.1",
+    "socket.io": "^1.4.5",
     "tslint": "^3.5",
     "typescript": "^1.8"
   },

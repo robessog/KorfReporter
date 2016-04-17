@@ -6,16 +6,13 @@
         ShortGoal,
         MediumGoal,
         LongGoal,
-        
         FreePassMiss,
         PenaltyMiss,
-        
         Substitution,
         Injury,
         TimeOut,
         YellowCard,
         RedCard,
-        
         FirstHalfStart,
         FirstHalfEnd,
         SecondHalfStart,
