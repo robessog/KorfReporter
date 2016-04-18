@@ -1,3 +1,4 @@
+import {GamePlayer} from './../SHARED_SRC/Domain/GamePlayer';
 export class MatchTeam {
     
     constructor(name: string) {
@@ -7,4 +8,6 @@ export class MatchTeam {
     name: string;
     score: number = 0;
     isHostTeam: boolean;
+    
+    players: GamePlayer[] = [];
 }

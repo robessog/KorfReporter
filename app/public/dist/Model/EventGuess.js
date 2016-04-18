@@ -10,11 +10,10 @@ System.register(['./../SHARED_SRC/Domain/EventTypeTranslator'], function(exports
             }],
         execute: function() {
             class EventGuess {
-                constructor(team, player, nr, eventType) {
+                constructor(player, eventType, team) {
+                    this.player = player;
                     this.eventType = eventType;
-                    this.teamName = team;
-                    this.playerName = player;
-                    this.playerNumber = nr;
+                    this.team = team;
                 }
                 get eventTypeDisplayName() {
                     return EventTypeTranslator_1.EventTypeTranslator.getDisplayName(this.eventType);

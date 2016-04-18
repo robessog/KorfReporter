@@ -1,8 +1,6 @@
 "use strict";
-var EventTypeTranslator = (function () {
-    function EventTypeTranslator() {
-    }
-    EventTypeTranslator.getDisplayName = function (eventType) {
+class EventTypeTranslator {
+    static getDisplayName(eventType) {
         switch (eventType) {
             case 5:
                 return 'Long';
@@ -15,7 +13,6 @@ var EventTypeTranslator = (function () {
             default:
                 return '???? unkown event type ????';
         }
-    };
-    return EventTypeTranslator;
-}());
+    }
+}
 exports.EventTypeTranslator = EventTypeTranslator;

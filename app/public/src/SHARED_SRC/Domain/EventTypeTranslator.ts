@@ -1,15 +1,15 @@
-import {Domain} from './EventType';
+import {EventType} from './EventType';
 
 export class EventTypeTranslator {
-    static getDisplayName(eventType: Domain.EventType) : string {
+    static getDisplayName(eventType: EventType) : string {
         switch (eventType) {
-            case Domain.EventType.LongGoal:
+            case EventType.LongGoal:
                 return 'Long';
-            case Domain.EventType.MediumGoal:
+            case EventType.MediumGoal:
                 return 'Medium';
-            case Domain.EventType.PenaltyGoal:
+            case EventType.PenaltyGoal:
                 return 'Penalty';
-            case Domain.EventType.FirstHalfStart:
+            case EventType.FirstHalfStart:
                 return 'First half started';
             default:
             return '???? unkown event type ????';

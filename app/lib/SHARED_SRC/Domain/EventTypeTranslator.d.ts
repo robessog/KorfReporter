@@ -1,4 +1,4 @@
-import { Domain } from './EventType';
+import { EventType } from './EventType';
 export declare class EventTypeTranslator {
-    static getDisplayName(eventType: Domain.EventType): string;
+    static getDisplayName(eventType: EventType): string;
 }

@@ -8,6 +8,7 @@ System.register([], function(exports_1, context_1) {
             class MatchTeam {
                 constructor(name) {
                     this.score = 0;
+                    this.players = [];
                     this.name = name;
                 }
             }

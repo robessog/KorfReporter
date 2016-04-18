@@ -12,23 +12,50 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <input class="form-control input-lg" type="text" value.bind="userInput" input.trigger="userInputChanged()" placeholder="Type event expression" >
+            <input class="form-control input-lg" type="text" value.bind="userInput" input.trigger="userInputChanged()" keyup.delegate="keyPressed($event)" placeholder="Type event expression" >
             
-            <table class="table">
+            <table class="table table-hover">
                 <tbody>
-                    <tr repeat.for="guess of guesses">
-                       <td>${guess.teamName}</td>
-                       <td>${guess.playerNumber}</td>
-                       <td>${guess.playerName}</td>
+                    <tr repeat.for="guess of guesses" class.bind="$index == selectedGuessIndex ? 'info' : ''">
+                       <td>${guess.team}</td>
+                       <td>${guess.player.jerseyNumber}</td>
+                       <td>${guess.player.fullName}</td>
                        <td>${guess.eventTypeDisplayName}</td>
                     </tr>
                 </tbody>
             </table>
-            
         </div>
         <div class="col-md-2"></div>
     </div>
-    
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr repeat.for="event of events">
+                       <td>${event.team}</td>
+                       <td>${event.player.jerseyNumber}</td>
+                       <td>${event.player.fullName}</td>
+                       <td>${event.eventTypeDisplayName}</td>
+                    </tr>
+                </tbody>
+            <tfoot if.bind="!!!events.length">
+                <tr>
+                    <td class="text-center" colspan="4">
+                        No events happened yet.
+                    </td>
+                </tr>
+            </tfoot>
+            </table>
+        </div>
+    </div>
     
     <div class="contaier">
         <div>${message}</div>

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es6",
     "declaration": true,
     "module": "commonjs",
     "moduleResolution": "node",
@@ -21,6 +22,7 @@
     "src\\app.ts",
     "src\\greeter.ts",
     "src\\SHARED_SRC\\Domain\\EventType.ts",
-    "src\\SHARED_SRC\\Domain\\EventTypeTranslator.ts"
+    "src\\SHARED_SRC\\Domain\\EventTypeTranslator.ts",
+    "src\\SHARED_SRC\\Domain\\GamePlayer.ts"
   ]
 }
