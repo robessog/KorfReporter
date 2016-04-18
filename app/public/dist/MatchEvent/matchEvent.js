@@ -1,7 +1,7 @@
-System.register(['./../Model/MatchTeam', './../Model/EventGuess', 'socket.io-client'], function(exports_1, context_1) {
+System.register(['./../Model/MatchTeam', './../Model/EventGuess', './../Model/EventAbbreviationResolver', 'socket.io-client'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var MatchTeam_1, EventGuess_1, Socket;
+    var MatchTeam_1, EventGuess_1, EventAbbreviationResolver_1, Socket;
     var MatchEvent;
     return {
         setters:[
@@ -11,33 +11,33 @@ System.register(['./../Model/MatchTeam', './../Model/EventGuess', 'socket.io-cli
             function (EventGuess_1_1) {
                 EventGuess_1 = EventGuess_1_1;
             },
+            function (EventAbbreviationResolver_1_1) {
+                EventAbbreviationResolver_1 = EventAbbreviationResolver_1_1;
+            },
             function (Socket_1) {
                 Socket = Socket_1;
             }],
         execute: function() {
             class MatchEvent {
                 constructor() {
-                    this.heading = 'Welcome to Aurelia!';
-                    this.firstName = 'John';
-                    this.lastName = 'Doe';
                     this.message = 'Hello from my királyságos aurelia!';
+                    this.userInput = '';
+                    this.guesses = [];
                     this.team1 = new MatchTeam_1.MatchTeam('SZAC');
                     this.team2 = new MatchTeam_1.MatchTeam('Szentendre');
                 }
-                get guesses() {
-                    return [
-                        new EventGuess_1.EventGuess('SZAC', 'Dörfi György', 6, 5),
-                        new EventGuess_1.EventGuess('SZAC', 'Dörfi György', 6, 0)
-                    ];
-                }
-                get fullName() {
-                    return `${this.firstName} ${this.lastName}`;
-                }
-                submit() {
-                    alert(`Welcome, ${this.fullName}!`);
-                }
                 changeMessage() {
-                    this.message = 'changed 5336';
+                    this.message = 'changed message pressed';
+                }
+                userInputChanged() {
+                    console.log(this.userInput);
+                    this.guesses.splice(0, this.guesses.length);
+                    if (this.userInput.length >= 1) {
+                        var eventType = EventAbbreviationResolver_1.EventAbbreviationResolver.getEventType(this.userInput[0]);
+                        if (eventType) {
+                            this.guesses.push(new EventGuess_1.EventGuess('SZAC', 'Dörfi György', 6, eventType));
+                        }
+                    }
                 }
                 activate() {
                     this.socket = Socket.connect();

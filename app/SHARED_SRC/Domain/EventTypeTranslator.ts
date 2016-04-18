@@ -5,6 +5,8 @@ export class EventTypeTranslator {
         switch (eventType) {
             case Domain.EventType.LongGoal:
                 return 'Long';
+            case Domain.EventType.MediumGoal:
+                return 'Medium';
             case Domain.EventType.PenaltyGoal:
                 return 'Penalty';
             case Domain.EventType.FirstHalfStart:

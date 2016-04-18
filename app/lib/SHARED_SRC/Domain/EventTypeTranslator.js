@@ -6,6 +6,8 @@ var EventTypeTranslator = (function () {
         switch (eventType) {
             case 5:
                 return 'Long';
+            case 4:
+                return 'Medium';
             case 0:
                 return 'Penalty';
             case 13:

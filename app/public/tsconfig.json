@@ -10,18 +10,16 @@
     "removeComments": true
   },
   "filesGlob": [
-    "./typings/main.d.ts",
     "./src/**/*.ts"
   ],
   "files": [
-    "typings\\main.d.ts",
     "src\\about.ts",
     "src\\app.ts",
     "src\\main.ts",
-    "src\\MatchEvent\\matchEvent.ts",
     "src\\Model\\EventAbbreviationResolver.ts",
     "src\\Model\\EventGuess.ts",
     "src\\Model\\MatchTeam.ts",
+    "src\\MatchEvent\\matchEvent.ts",
     "src\\SHARED_SRC\\Domain\\EventType.ts",
     "src\\SHARED_SRC\\Domain\\EventTypeTranslator.ts"
   ]

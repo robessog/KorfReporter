@@ -10,6 +10,8 @@ System.register([], function(exports_1, context_1) {
                     switch (eventType) {
                         case 5:
                             return 'Long';
+                        case 4:
+                            return 'Medium';
                         case 0:
                             return 'Penalty';
                         case 13:

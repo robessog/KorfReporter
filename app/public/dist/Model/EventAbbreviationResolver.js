@@ -7,9 +7,13 @@ System.register([], function(exports_1, context_1) {
         execute: function() {
             class EventAbbreviationResolver {
                 static getEventType(abbreviation) {
-                    return 5;
+                    return EventAbbreviationResolver.abbrvMap[abbreviation];
                 }
             }
+            EventAbbreviationResolver.abbrvMap = {
+                'l': 5,
+                'm': 4
+            };
             exports_1("EventAbbreviationResolver", EventAbbreviationResolver);
         }
     }

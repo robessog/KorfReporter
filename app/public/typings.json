@@ -1,4 +1,7 @@
 {
   "version": false,
-  "dependencies": {}
+  "dependencies": {},
+  "ambientDependencies": {
+    "socket.io-client": "registry:dt/socket.io-client#1.4.4+20160317120654"
+  }
 }

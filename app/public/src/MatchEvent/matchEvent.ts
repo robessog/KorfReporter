@@ -2,38 +2,34 @@
 
 import {MatchTeam} from './../Model/MatchTeam';
 import {EventGuess} from './../Model/EventGuess';
+import {EventAbbreviationResolver} from './../Model/EventAbbreviationResolver';
 import {Domain} from './../SHARED_SRC/Domain/EventType';
 import * as Socket from 'socket.io-client';
 
 export class MatchEvent {
-  heading: string = 'Welcome to Aurelia!';
-  firstName: string = 'John';
-  lastName: string = 'Doe';
   message: string = 'Hello from my királyságos aurelia!';
   
+  userInput: string = '';
+  guesses: EventGuess[] = [];
   team1: MatchTeam = new MatchTeam('SZAC');
   team2: MatchTeam = new MatchTeam('Szentendre');
+  
   socket: SocketIOClient.Socket;
   
-  get guesses(): EventGuess[] {
-    
-    return [
-        new EventGuess('SZAC', 'Dörfi György', 6, Domain.EventType.LongGoal),
-        new EventGuess('SZAC', 'Dörfi György', 6, Domain.EventType.PenaltyGoal)
-    ];
+  changeMessage(): void {
+      this.message = 'changed message pressed';
   }
   
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  submit(): void {
+  userInputChanged(): void {
+    console.log(this.userInput);
     
-    alert(`Welcome, ${this.fullName}!`);
-  }
-
-  changeMessage(): void {
-      this.message = 'changed 5336';
+    this.guesses.splice(0, this.guesses.length);
+    if (this.userInput.length >= 1) {
+      var eventType = EventAbbreviationResolver.getEventType(this.userInput[0]);
+      if (eventType) {
+       this.guesses.push(new EventGuess('SZAC', 'Dörfi György', 6, eventType));
+      }
+    }
   }
   
   activate(): void {
