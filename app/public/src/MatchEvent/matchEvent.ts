@@ -27,7 +27,7 @@ export class MatchEvent {
     this.team1.players.push(new GamePlayer('Tamás', 'Berényi', 36));
     
     this.team2.players.push(new GamePlayer('Viktor', 'Horváth', 1));
-    this.team2.players.push(new GamePlayer('Nóra', 'Molnár', 6));
+    this.team2.players.push(new GamePlayer('Nórika', 'Molnár', 6));
   }
   
   changeMessage(): void {
@@ -69,8 +69,10 @@ export class MatchEvent {
         this.selectedGuessIndex = Math.max(--this.selectedGuessIndex, 0);
         break;
     case 13:
-        this.createEvent();
-        this.resetUserInput();
+        if(this.guesses.length){
+          this.createEvent();
+          this.resetUserInput();
+        }
         break;
       default:
         break;

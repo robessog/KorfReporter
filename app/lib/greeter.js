@@ -8,3 +8,5 @@ class Greeter {
     }
 }
 module.exports = Greeter;
+
+//# sourceMappingURL=greeter.js.map

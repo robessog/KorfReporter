@@ -9,6 +9,7 @@ var dtsGenerator = require('dts-generator');
 var plumber = require('gulp-plumber');
 var tsc = require('gulp-typescript');
 var tsProject = tsc.createProject('tsconfig.json');
+var sourcemaps = require('gulp-sourcemaps');
 
 require('dotbin');
 
@@ -53,9 +54,11 @@ gulp.task('tslint', 'Lints all TypeScript source files', ['update-tsconfig'], fu
 var buildMethod = function(cb) {
     console.warn(tsFilesGlob);
     var tsResult = gulp.src(tsFilesGlob)
+        .pipe(sourcemaps.init())
         .pipe(tsc(tsProject, '', tsc.reporter.fullReporter(true)));
     tsResult.dts.pipe(gulp.dest(paths.destinationFolder));
     return tsResult.js
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.destinationFolder + '/'));
 };
 

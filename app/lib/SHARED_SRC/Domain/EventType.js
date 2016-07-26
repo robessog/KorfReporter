@@ -19,3 +19,5 @@
     EventType[EventType["SecondHalfEnd"] = 16] = "SecondHalfEnd";
 })(exports.EventType || (exports.EventType = {}));
 var EventType = exports.EventType;
+
+//# sourceMappingURL=EventType.js.map

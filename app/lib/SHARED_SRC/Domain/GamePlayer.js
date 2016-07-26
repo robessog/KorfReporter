@@ -11,3 +11,5 @@ class GamePlayer {
     }
 }
 exports.GamePlayer = GamePlayer;
+
+//# sourceMappingURL=GamePlayer.js.map

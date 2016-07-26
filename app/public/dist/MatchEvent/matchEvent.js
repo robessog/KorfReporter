@@ -34,7 +34,7 @@ System.register(['./../Model/MatchTeam', './../Model/EventGuess', './../Model/Ev
                     this.team1.players.push(new GamePlayer_1.GamePlayer('György', 'Dörfi', 6));
                     this.team1.players.push(new GamePlayer_1.GamePlayer('Tamás', 'Berényi', 36));
                     this.team2.players.push(new GamePlayer_1.GamePlayer('Viktor', 'Horváth', 1));
-                    this.team2.players.push(new GamePlayer_1.GamePlayer('Nóra', 'Molnár', 6));
+                    this.team2.players.push(new GamePlayer_1.GamePlayer('Nórika', 'Molnár', 6));
                 }
                 changeMessage() {
                     this.message = 'changed message pressd';
@@ -71,8 +71,10 @@ System.register(['./../Model/MatchTeam', './../Model/EventGuess', './../Model/Ev
                             this.selectedGuessIndex = Math.max(--this.selectedGuessIndex, 0);
                             break;
                         case 13:
-                            this.createEvent();
-                            this.resetUserInput();
+                            if (this.guesses.length) {
+                                this.createEvent();
+                                this.resetUserInput();
+                            }
                             break;
                         default:
                             break;
